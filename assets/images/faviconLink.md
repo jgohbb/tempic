@@ -1,0 +1,3 @@
+link to html with:
+
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
