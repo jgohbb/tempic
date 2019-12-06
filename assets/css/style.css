@@ -24,6 +24,11 @@ input {
     width: 350px;
 }
 
+ul {
+    list-style-type: circle;
+    line-height: 1.5em;
+}
+
 /* classes */
 
 .hide {
@@ -65,7 +70,10 @@ input {
 }
 
 .game-info {
+    position: absolute;
+    top: 10%;
     padding: 20px;
+    margin: 0 75px;
 }
 
 .username-input {
