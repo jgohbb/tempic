@@ -45,5 +45,42 @@ $.ajax({
   console.log(firstParagraph)
 });
 
+  // MODAL START
+  // Section from here to be delected to link game functions
+  $("#myBtn").on("click", function() {
+    callModal(hText, details);
+  });
+  
+  let hText = "Answer is Correct";
+  let details = "The correct answer was: ";
+  let activeAns = "Nuuk, Tokyo, Moscow, Mexico City, Perth"; 
+  let close = "CLOSE";
+  // To be deleted up to here
+  
+  function callModal() {
+      // show modal
+      $(".modal").addClass("bg-modal");
+      $(".modal-inner").addClass("modal-content");
+      // add content to modal
+      $(".modal-content").html("<div class='modal-heading'>" + hText + "</div>" +
+          "<div class='details-modal'>" + details + "</div>" +
+          "<div class='details-modal-bold'>" + activeAns + "</div>" +
+          "<button type='button' class='btn btn-default'>" + close + "</button>"
+      );
+      
+      $(".btn").on("click", function() {
+          modal.style.display = "none";
+          window.location.reload();
+      });
+  };
+
+  window.onclick = function(event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+        window.location.reload();
+      }
+  }
+  // MODAL SECTION END
+
     // end of document.ready
 });
