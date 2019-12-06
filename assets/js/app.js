@@ -13,5 +13,37 @@ $(document).ready(function () {
         return (c * (9 / 5)) + 32;
     }
 
+    // Donavan's API key for OpenWeather
+var APIKey = "a981a2689a0391721cbc66577613f812";
+
+// URL for the OpenWeather, using imperial units.
+weatherURL = "https://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&units=imperial&appid=" + APIKey;
+
+// Rough Ajax for getting tempurature from OpenWeather,
+$.ajax({
+  url: weatherURL,
+  method: "GET"
+})
+// console.log the tempurature for now.
+  .then(function(data) {
+    console.log("Temperature (F): " + data.main.temp);
+  });
+
+
+// URL for the Wiki API
+ var queryURL =
+  "https://cors-anywhere.herokuapp.com/https://en.wikipedia.org/w/api.php?action=parse&prop=text&page=Moscow&format=json";
+
+  // Ajax for the Wiki API
+$.ajax({
+  url: queryURL,
+  method: "GET"
+}).then(function (response) {
+  // gets general city data about each location
+  let firstParagraph = $(response.parse.text['*']).children("p:nth-of-type(2)").text();
+  $(".infoOutput").html(firstParagraph);
+  console.log(firstParagraph)
+});
+
     // end of document.ready
 });
