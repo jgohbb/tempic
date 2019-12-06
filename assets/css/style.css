@@ -51,18 +51,17 @@ input {
     font-family: 'Cardo', serif;
     height: 30px;
     width: 125px;
-    position: absolute;
-    left: 50%;
-    margin-left: -62.5px;
-    top: 50%;
-    margin-top: -15px;
     border-radius: 20px;
     border: black 3px double;
     padding: 2px;
 }
 
-.play-button:hover {
-    background: black;
+.landing-button {
+    position: absolute;
+    left: 50%;
+    margin-left: -62.5px;
+    top: 50%;
+    margin-top: -15px;
 }
 
 .game-info {
