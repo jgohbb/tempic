@@ -3,11 +3,13 @@
 }
 
 /* tags */
+
 body {
     background-color: #444;
 }
 
 header {
+    font-family: 'Cardo', serif;
     width: 100%;
     min-height: 80px;
     background-color: #f1e7e6;
@@ -18,9 +20,12 @@ header {
 
 input {
     border-radius: 10px;
+    padding: 3px 0px 3px 8px;
+    width: 350px;
 }
 
 /* classes */
+
 .hide {
     display: none;
 }
@@ -43,6 +48,7 @@ input {
 }
 
 .play-button {
+    font-family: 'Cardo', serif;
     height: 30px;
     width: 125px;
     position: absolute;
@@ -52,6 +58,11 @@ input {
     margin-top: -15px;
     border-radius: 20px;
     border: black 3px double;
+    padding: 2px;
+}
+
+.play-button:hover {
+    background: black;
 }
 
 .game-info {
@@ -65,7 +76,12 @@ input {
     margin-left: -172.32px;
 }
 
+.game-info, .username-input {
+    font-family: 'Open Sans', sans-serif;
+}
+
 /* IDs */
+
 /* Font family to use
 font-family: 'Cardo', serif;
 font-family: 'Open Sans', sans-serif; */
