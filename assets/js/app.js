@@ -46,7 +46,7 @@ $.ajax({
 });
 
   // MODAL START
-  // Section from here be delected to link game functions
+  // Section from here to be delected to link game functions
   $("#myBtn").on("click", function() {
     callModal(hText, details);
   });
@@ -70,13 +70,14 @@ $.ajax({
       
       $(".btn").on("click", function() {
           modal.style.display = "none";
+          window.location.reload();
       });
   };
 
   window.onclick = function(event) {
       if (event.target == modal) {
         modal.style.display = "none";
-      //  insert code for reseting game
+        window.location.reload();
       }
   }
   // MODAL SECTION END
