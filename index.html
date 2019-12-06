@@ -17,6 +17,12 @@
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 </head>
 
+
+<!-- create a section div in the index.html file with the class of "landing-page" and a class of "unhide"
+ create a div for the game information, class "game-info"
+ create a div for the user to enter their name, class "username-input"
+ create a Play button, as a div, not a button, class "play-button -->
+
 <body>
     <div class="main">
 
@@ -25,7 +31,30 @@
         <div class="content bg">
 
             <!-- screen 1 - landing page -->
-            <div class="content-inner"></div>
+            <div class="content-inner">
+                <div class="landing-page unhide">
+
+                    <div class="game-info text-center">
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestias aliquid excepturi vero,
+                            atque nobis tempore doloribus neque alias distinctio, saepe quod blanditiis sequi! Quasi
+                            provident amet modi et veniam earum? Lorem ipsum dolor sit amet consectetur adipisicing
+                            elit. Numquam fugiat dolorem cum ut harum doloribus quod rem, totam alias, nam officia magni
+                            autem atque repellat fugit qui nostrum tempora saepe!</p>
+                    </div>
+
+                    <div class="username-input">
+                        <form>
+                            <label>Username:&nbsp;</label>
+                            <input type="text" placeholder="John Doe">
+                        </form>
+                    </div>
+
+                    <div class="play-button text-center">Let's Play!</div>
+
+                </div>
+            </div>
+
+
 
             <!-- screen 2 - main page -->
             <div class="content-inner hide"></div>
@@ -47,13 +76,13 @@
     <!-- bootstrap js links just in case -->
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
         integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
-    </script>
+        </script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
         integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
-    </script>
+        </script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
-    </script>
+        </script>
 
 </body>
 
