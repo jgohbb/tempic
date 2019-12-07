@@ -83,8 +83,9 @@ $(document).ready(function () {
 
   // - - - - - - - - - - WIKI API - - - - - - - - - - //
   // URL for the Wiki API
+  var citySelected=""; //this will be deleted/linked to info button when created
   var queryURL =
-    "https://cors-anywhere.herokuapp.com/https://en.wikipedia.org/w/api.php?action=parse&prop=text&page=Moscow&format=json";
+  "https://cors-anywhere.herokuapp.com/https://en.wikipedia.org/w/api.php?action=parse&prop=text&page=" + citySelected + "&format=json";
   // Ajax for the Wiki API
   $.ajax({
     url: queryURL,
