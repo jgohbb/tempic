@@ -48,17 +48,17 @@ $(document).ready(function () {
 
   // calls all the functions to run the game
   function gameSetup() {
+    numCitiesPerGame = 5;
     // call game functions
-    citySelect();
+    citySelect(numCitiesPerGame);
     gatherWeatherData();
     gatherWikiData();
-    displayCards();
+    displayCards(numCitiesPerGame);
   }
 
   // selects the five cities to be used in the game
-  function citySelect() {
-    numCitiesPerGame = 5;
-    for (let i = 0; i < numCitiesPerGame; i++) {
+  function citySelect(numCities) {
+    for (let i = 0; i < numCities; i++) {
       // selects a city at random
       let sCities = cities.city[Math.floor(Math.random() * cities.city.length)];
       // ensure city obj has not already been selected
@@ -69,16 +69,33 @@ $(document).ready(function () {
         citySelect();
       }
     }
-    // - - - - // TO BE REMOVED // - - - - - //
-    console.log(selectedCities);
   }
 
   function gatherWeatherData() {}
 
   function gatherWikiData() {}
 
-  function displayCards() {}
-
+  // displays cards on main page
+  function displayCards(numCities) {
+    for (let i = 0; i < numCities; i++) {
+      $(".card-output").append("<div class='card'>" + 
+                            "<div class='card-image'>" + selectedCities[i].image + "</div>" +
+                            "<div class='card-data'>" +
+                                "<div class='city'>" + selectedCities[i].name + "</div>" +
+                                "<div class='country'>" + selectedCities[i].country + "</div>" +
+                                "<div class='population mk-block'>" +
+                                    "<span class='f-left'>Pop:</span>" +
+                                    "<span class='f-right'>" + selectedCities[i].population + "</span>" +
+                                "</div>" +
+                                "<div class='annual-sun  mk-block'>" +
+                                    "<span class='f-left'>Sun:</span>" +
+                                    "<span class='f-right'>" + selectedCities[i].sunshineHours + "</span>" +
+                                "</div>" + 
+                            "</div>" + 
+                            "<div class='card-button'>More Info</div>" +
+                        "</div>");
+    }
+  }
 
   // - - - - - - - - - - WEATHER API - - - - - - - - - - //
   // Donavan's API key for OpenWeather
