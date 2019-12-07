@@ -37,7 +37,6 @@ ul {
 
 .inputs {
     display: block;
-    width: 40%;
     margin: 30px auto 20px auto;
 }
 
@@ -50,6 +49,8 @@ ul {
 .landing-page {
     display: block;
     min-height: 700px;
+    max-width: 700px;
+    margin: auto;
 }
 
 .content-inner {
@@ -70,6 +71,11 @@ ul {
     background-color: rgba(216, 181, 146, .8);
     display: block;
     text-align: center;
+    cursor: pointer;
+}
+
+.play-button:hover {
+    background-color: rgba(218, 168, 118, 0.8);
 }
 
 .game-info {
@@ -80,14 +86,14 @@ ul {
 .gi-span {
     font-size: 18px;
     display: block;
-    width: 60%;
+    width: 90%;
     margin: auto;
     font-weight: 600;
 }
 
 .ul-div {
     font-size: 18px;
-    width: 55%;
+    width: 80%;
     margin: auto;
     padding: 20px;
 }
@@ -100,9 +106,6 @@ ul {
 .game-info, .username-input {
     font-family: 'Open Sans', sans-serif;
 }
-
-
-
 
 
 /* MODAL SECTION */
