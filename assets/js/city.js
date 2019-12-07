@@ -76,7 +76,7 @@ let cities = {
             country: "England",
             population: "9.2M",
             sunshineHours: "1,633",
-            image: "<img src='assets/images/lpondon.jpg'>"
+            image: "<img src='assets/images/london.jpg'>"
         },
         {
             name: "Mexico City",
