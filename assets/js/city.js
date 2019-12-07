@@ -140,6 +140,6 @@ let cities = {
             population: "0.4M",
             sunshineHours: "2,059",
             image: "<img src='assets/images/wellington.jpg'>"
-        },
+        }
     ]
 }
