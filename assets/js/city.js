@@ -1,4 +1,4 @@
-// access examples - cities.city[0].name, cities.city[2].image
+// access examples - cities.city[0].cityInfo, cities.city[2].image
 
 let cities = {
     city: [{
@@ -6,7 +6,7 @@ let cities = {
             country: "Netherland",
             population: "1.1M",
             sunshineHours: "3,124",
-            image: "<img src='assets/images/amsterdam.jpg'>"
+            image: "<img src='assets/images/amsterdam.jpg'>",
         },
         {
             name: "Bangkok",
