@@ -55,13 +55,29 @@ $(document).ready(function () {
     displayCards();
   }
 
-  function citySelect() { }
+  // selects the five cities to be used in the game
+  function citySelect() {
+    numCitiesPerGame = 5;
+    for (let i = 0; i < numCitiesPerGame; i++) {
+      // selects a city at random
+      let sCities = cities.city[Math.floor(Math.random() * cities.city.length)];
+      // ensure city obj has not already been selected
+      if ($.inArray(sCities.name, selectedCities) === -1) {
+        selectedCities.push(sCities);
+      } else {
+        // recursive action
+        citySelect();
+      }
+    }
+    // - - - - // TO BE REMOVED // - - - - - //
+    console.log(selectedCities);
+  }
 
-  function gatherWeatherData() { }
-  
-  function gatherWikiData() { }
-  
-  function displayCards() { }
+  function gatherWeatherData() {}
+
+  function gatherWikiData() {}
+
+  function displayCards() {}
 
 
   // - - - - - - - - - - WEATHER API - - - - - - - - - - //
