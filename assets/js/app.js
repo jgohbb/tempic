@@ -86,15 +86,15 @@ $(document).ready(function () {
   var queryURL =
     "https://cors-anywhere.herokuapp.com/https://en.wikipedia.org/w/api.php?action=parse&prop=text&page=Moscow&format=json";
   // Ajax for the Wiki API
-  // $.ajax({
-  //   url: queryURL,
-  //   method: "GET"
-  // }).then(function (response) {
+  $.ajax({
+    url: queryURL,
+    method: "GET"
+  }).then(function (response) {
   //   // gets general city data about each location
-  //   let firstParagraph = $(response.parse.text['*']).children("p:nth-of-type(2)").text();
-  //   $(".infoOutput").html(firstParagraph);
-  //   console.log(firstParagraph)
-  // });
+    let firstParagraph = $(response.parse.text['*']).children("p:nth-of-type(2)").text();
+    $(".infoOutput").html(firstParagraph);
+    console.log(firstParagraph)
+  });
 
 
   // - - - - - - - - - - MODAL START - - - - - - - - - - //
