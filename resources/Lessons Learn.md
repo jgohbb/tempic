@@ -22,4 +22,4 @@ Format for update: number [name] issue and solution
 
 ## Coding issues:
 
-## Souring issues [api, etc]:
+## Sourcing issues [api, etc]:
