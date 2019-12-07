@@ -73,7 +73,24 @@ $(document).ready(function () {
     console.log(selectedCities);
   }
 
-  function gatherWeatherData() {}
+  function gatherWeatherData() {
+    for (i = 0; i < selectedCities.length; i++) {
+
+  var APIKey = "a981a2689a0391721cbc66577613f812";
+  // URL for the OpenWeather
+  var weatherURL = "https://cors-anywhere.herokuapp.com/https://api.openweathermap.org/data/2.5/weather?q=" +
+    selectedCities[i] + "&units=metric&appid=" + APIKey;
+
+  $.ajax({
+      url: weatherURL,
+      method: "GET"
+    })
+  // console.log the tempurature for now.
+  .then(function (data) {
+    console.log("Temperature (F): " + data.main.temp);
+  });}
+      }
+   
 
   function gatherWikiData() {}
 
@@ -85,7 +102,7 @@ $(document).ready(function () {
   var APIKey = "a981a2689a0391721cbc66577613f812";
   let cityName = "";
   // URL for the OpenWeather
-  weatherURL = "https://cors-anywhere.herokuapp.com/https://api.openweathermap.org/data/2.5/weather?q=" +
+  var weatherURL = "https://cors-anywhere.herokuapp.com/https://api.openweathermap.org/data/2.5/weather?q=" +
     cityName + "&units=metric&appid=" + APIKey;
   // Rough Ajax for getting tempurature from OpenWeather,
   // $.ajax({
