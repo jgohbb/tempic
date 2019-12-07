@@ -9,6 +9,8 @@ $(document).ready(function () {
   const genMilliseconds = () => 1000 * 60 * minLimit;
   // stores selected cities
   let selectedCities = [];
+  // set card generation limit
+  let numCitiesPerGame = 5;
 
   // - - - - - - - - - - GENERAL FUNCTIONALITY - - - - - - - - - - //
   // hides the main game page on start page load
@@ -48,25 +50,22 @@ $(document).ready(function () {
 
   // calls all the functions to run the game
   function gameSetup() {
-    numCitiesPerGame = 5;
     // call game functions
-    citySelect(numCitiesPerGame);
+    citySelect();
     gatherWeatherData();
     gatherWikiData();
-    displayCards(numCitiesPerGame);
+    displayCards();
   }
 
   // selects the five cities to be used in the game
-  function citySelect(numCities) {
-    for (let i = 0; i < numCities; i++) {
+  function citySelect() {
+    while (selectedCities.length < numCitiesPerGame) {
       // selects a city at random
       let sCities = cities.city[Math.floor(Math.random() * cities.city.length)];
       // ensure city obj has not already been selected
-      if ($.inArray(sCities.name, selectedCities) === -1) {
+      if ($.inArray(sCities, selectedCities) === -1) {
+        // if not in the array - adds it to the array
         selectedCities.push(sCities);
-      } else {
-        // recursive action
-        citySelect();
       }
     }
   }
@@ -93,24 +92,24 @@ $(document).ready(function () {
   function gatherWikiData() {}
 
   // displays cards on main page
-  function displayCards(numCities) {
-    for (let i = 0; i < numCities; i++) {
-      $(".card-output").append("<div class='card'>" + 
-                            "<div class='card-image'>" + selectedCities[i].image + "</div>" +
-                            "<div class='card-data'>" +
-                                "<div class='city'>" + selectedCities[i].name + "</div>" +
-                                "<div class='country'>" + selectedCities[i].country + "</div>" +
-                                "<div class='population mk-block'>" +
-                                    "<span class='f-left'>Pop:</span>" +
-                                    "<span class='f-right'>" + selectedCities[i].population + "</span>" +
-                                "</div>" +
-                                "<div class='annual-sun  mk-block'>" +
-                                    "<span class='f-left'>Sun:</span>" +
-                                    "<span class='f-right'>" + selectedCities[i].sunshineHours + "</span>" +
-                                "</div>" + 
-                            "</div>" + 
-                            "<div class='card-button'>More Info</div>" +
-                        "</div>");
+  function displayCards() {
+    for (let i = 0; i < numCitiesPerGame; i++) {
+      $(".card-output").append("<div class='card'>" +
+        "<div class='card-image'>" + selectedCities[i].image + "</div>" +
+        "<div class='card-data'>" +
+        "<div class='city'>" + selectedCities[i].name + "</div>" +
+        "<div class='country'>" + selectedCities[i].country + "</div>" +
+        "<div class='population mk-block'>" +
+        "<span class='f-left'>Pop:</span>" +
+        "<span class='f-right'>" + selectedCities[i].population + "</span>" +
+        "</div>" +
+        "<div class='annual-sun  mk-block'>" +
+        "<span class='f-left'>Sun:</span>" +
+        "<span class='f-right'>" + selectedCities[i].sunshineHours + "</span>" +
+        "</div>" +
+        "</div>" +
+        "<div class='card-button'>More Info</div>" +
+        "</div>");
     }
   }
 
