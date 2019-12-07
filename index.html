@@ -17,44 +17,47 @@
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 </head>
 
-
-<!-- create a section div in the index.html file with the class of "landing-page" and a class of "unhide"
- create a div for the game information, class "game-info"
- create a div for the user to enter their name, class "username-input"
- create a Play button, as a div, not a button, class "play-button -->
-
 <body>
     <div class="main">
 
-        <header></header>
-
         <div class="content bg">
-            <!-- temporary button to test modal functionality [to be deleted]-->
-            <button id="myBtn">Open Modal</button>
-            
+            <!-- temporary button to test modal functionality [to be deleted]
+            <button id="myBtn">Open Modal</button> -->
+
             <!-- screen 1 - landing page -->
             <div class="content-inner">
+
+                <div class="header">here is header content</div>
+
                 <div class="landing-page unhide">
 
                     <div class="game-info">
-                        <ul>
-                            <li>Five images will be presented to the user randomly from a list of 20 possible cities</li>
-                            <li>Put the cities in order from coolest to warmest</li>
-                            <li>You will have a limited number of tries to get it correct</li>
-                            <li>You can get additional information about each city via an additional info button</li>
-                        </ul>
+                        <span class="gi-span">
+                            Welcome to Tempic, the coolest (or maybe hottest) temperature based, city arranging game
+                            on the internet! Ok, it might be the only one. Who cares? It's fun. Here's how you play:
+                        </span>
+                        <div class="ul-div">
+                            <ul>
+                                <li>5 city cards will be presented randomly from a list of 20 possible options.</li>
+                                <li>Your challange is to arrange the cities in order from coolest to warmest.</li>
+                                <li>You will have a limited number of tries to guess the order correctly.</li>
+                                <li>And, just for fun, we added a button to each card which provides additional city
+                                    information.</li>
+                                <li>Enter your name and click 'Let's Play' to begin!</li>
+                            </ul>
+                        </div>
                     </div>
 
-                    <div class="username-input">
+                    <div class="inputs">
+                        <div class="username-input">
                             <input type="text" placeholder="Please Enter Your Name">
+                        </div>
+                        <div class="play-button">Let's Play!</div>
                     </div>
-
-                    <div class="play-button landing-button text-center">Let's Play!</div>
 
                 </div>
+
             </div>
-
-
 
             <!-- screen 2 - main page -->
             <div class="content-inner hide"></div>
@@ -67,8 +70,6 @@
         </div>
     </div>
 
-
-
     <!-- scripts -->
     <!-- jquery link -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -79,13 +80,13 @@
     <!-- bootstrap js links just in case -->
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
         integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
-        </script>
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
         integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
-        </script>
+    </script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
-        </script>
+    </script>
 
 </body>
 
