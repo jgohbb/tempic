@@ -246,6 +246,18 @@ ul {
     border-bottom: 1px solid black;
 }
 
+#imageModal {
+    width: 100%;
+    max-width: 200px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#modalCityInfo {
+    margin-top: 5px;
+}
+
 .btn {
     font-family:'Open Sans', sans-serif; 
     font-size: 20px;
