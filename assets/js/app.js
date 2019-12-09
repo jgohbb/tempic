@@ -139,7 +139,7 @@ $(document).ready(function () {
   // orders the cities from coldest to warmest
   function cityWinOrder() {
     let currentOrder = [];
-    let winOrder = [];
+    winOrder = [];
     // loops through and adds all temps in current order
     for (let i = 0; i < selectedCities.length; i++) {
       let c_name = selectedCities[i].name;
