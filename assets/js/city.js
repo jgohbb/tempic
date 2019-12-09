@@ -152,7 +152,7 @@ let cities = {
             sunshineHours: "1,369",
             image: "<img src='assets/images/nuuk.jpg'>",
             wikiData: "",
-            currentTemp: ""
+            currentTemp: ""  
         },
         {
             name: "Perth",

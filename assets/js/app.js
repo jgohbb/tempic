@@ -87,7 +87,7 @@ $(document).ready(function () {
         selectedCities[i].currentTemp = temp;
         console.log(selectedCities);
       });
-    }
+    }  
   }
 
   // adds the wiki data to each of the selectedCities 
