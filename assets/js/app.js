@@ -52,9 +52,9 @@ $(document).ready(function () {
   function gameSetup() {
     // call game functions
     citySelect();
-    gatherWeatherData();
-    gatherWikiData();
     displayCards();
+    setTimeout(gatherWikiData, 1000);  
+    setTimeout(gatherWeatherData, 1000);  
   }
 
   // selects the five cities to be used in the game
@@ -72,7 +72,40 @@ $(document).ready(function () {
 
   function gatherWeatherData() {}
 
-  function gatherWikiData() {}
+  // adds the wiki data to each of the selectedCities 
+  function gatherWikiData() {
+    let firstParagraph = "";
+    // loops through the selected cities list and makes a call for each city
+    for (let i = 0; i < selectedCities.length; i++) {
+      var queryURL =
+        "https://cors-anywhere.herokuapp.com/https://en.wikipedia.org/w/api.php?action=parse&prop=text&page=" +
+        selectedCities[i].name + "&format=json";
+      $.ajax({
+        url: queryURL,
+        method: "GET"
+      // waits for resonse and then parses and adds the data to the city
+      }).then(function (response) {
+        // gets general city data about each location
+        firstParagraph = $(response.parse.text['*']).children("p:nth-of-type(2)").text();
+        selectedCities[i].wikiData = firstParagraph;
+      });
+    }
+  }
+
+  // console.log(cities.city[0].name);
+  // // URL for the Wiki API
+  // var queryURL =
+  // "https://cors-anywhere.herokuapp.com/https://en.wikipedia.org/w/api.php?action=parse&prop=text&page=" +
+  // "moscow" + "&format=json";
+  // console.log(cities.city[0].name);
+  // let firstParagraph = "";
+  // $.ajax({
+  //   url: queryURL,
+  //   method: "GET"
+  // }).then(function (response) {
+  //   // gets general city data about each location
+  //   firstParagraph = $(response.parse.text['*']).children("p:nth-of-type(2)").text();
+  // });
 
   // displays cards on main page
   function displayCards() {
@@ -111,21 +144,6 @@ $(document).ready(function () {
   // console.log the tempurature for now.
   // .then(function (data) {
   //   console.log("Temperature (F): " + data.main.temp);
-  // });
-
-  // - - - - - - - - - - WIKI API - - - - - - - - - - //
-  // URL for the Wiki API
-  var queryURL =
-    "https://cors-anywhere.herokuapp.com/https://en.wikipedia.org/w/api.php?action=parse&prop=text&page=Moscow&format=json";
-  // Ajax for the Wiki API
-  // $.ajax({
-  //   url: queryURL,
-  //   method: "GET"
-  // }).then(function (response) {
-  //   // gets general city data about each location
-  //   let firstParagraph = $(response.parse.text['*']).children("p:nth-of-type(2)").text();
-  //   $(".infoOutput").html(firstParagraph);
-  //   console.log(firstParagraph)
   // });
 
 
