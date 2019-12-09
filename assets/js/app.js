@@ -92,7 +92,6 @@ $(document).ready(function () {
 
   // adds the wiki data to each of the selectedCities 
   function gatherWikiData() {
-    let firstParagraph = "";
     // loops through the selected cities list and makes a call for each city
     for (let i = 0; i < selectedCities.length; i++) {
       var queryURL =
@@ -104,8 +103,11 @@ $(document).ready(function () {
         // waits for resonse and then parses and adds the data to the city
       }).then(function (response) {
         // gets general city data about each location
-        firstParagraph = $(response.parse.text['*']).children("p:nth-of-type(2)").text();
-        selectedCities[i].wikiData = firstParagraph;
+        let = firstParagraph = $(response.parse.text['*']).children("p:nth-of-type(2)").text();
+        // pStripped is the paragraph with the [2] and [6] type referances removed
+        let pStripped = firstParagraph.replace(/\[\d+\]/g, '');
+        // add the modified paragraph to the selectedCities array
+        selectedCities[i].wikiData = pStripped; 
       });
     }
   }
