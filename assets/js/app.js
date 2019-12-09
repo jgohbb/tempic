@@ -45,6 +45,8 @@ $(document).ready(function () {
       $(".content-inner").children(".main-page").show();
       // update global name var
       usernameEntered = name;
+      // add user name on greeting text on main page
+      $(".user-name").html(usernameEntered);
       // calls main-page game setup function
       gameSetup();
     }
