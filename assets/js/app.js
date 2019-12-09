@@ -70,7 +70,24 @@ $(document).ready(function () {
     }
   }
 
-  function gatherWeatherData() {}
+  function gatherWeatherData() {
+    for (i = 0; i < selectedCities.length; i++) {
+
+  var APIKey = "a981a2689a0391721cbc66577613f812";
+  // URL for the OpenWeather
+  var weatherURL = "https://cors-anywhere.herokuapp.com/https://api.openweathermap.org/data/2.5/weather?q=" +
+    selectedCities[i] + "&units=metric&appid=" + APIKey;
+
+  $.ajax({
+      url: weatherURL,
+      method: "GET"
+    })
+  // console.log the tempurature for now.
+  .then(function (data) {
+    console.log("Temperature (F): " + data.main.temp);
+  });}
+      }
+   
 
   // adds the wiki data to each of the selectedCities 
   function gatherWikiData() {
@@ -134,7 +151,7 @@ $(document).ready(function () {
   var APIKey = "a981a2689a0391721cbc66577613f812";
   let cityName = "";
   // URL for the OpenWeather
-  weatherURL = "https://cors-anywhere.herokuapp.com/https://api.openweathermap.org/data/2.5/weather?q=" +
+  var weatherURL = "https://cors-anywhere.herokuapp.com/https://api.openweathermap.org/data/2.5/weather?q=" +
     cityName + "&units=metric&appid=" + APIKey;
   // Rough Ajax for getting tempurature from OpenWeather,
   // $.ajax({
@@ -146,42 +163,71 @@ $(document).ready(function () {
   //   console.log("Temperature (F): " + data.main.temp);
   // });
 
-
   // - - - - - - - - - - MODAL START - - - - - - - - - - //
-  // Section from here to be delected to link game functions
-  $("#myBtn").on("click", function () {
-    callModal(hText, details);
+// // *** Section to be deleted FROM here.. link game functions ***
+$("#cardBtn").on("click", function () {
+  infoModal();
+});
+
+$("#myBtnEnd").on("click", function () {
+  endModal();
+});
+// modal game info
+let citySelected = "Perth"; 
+let imageSelected = "";
+let cityInfo = "London is the capital and largest city of England and the United Kingdom.[7][8] Standing on the River Thames in the south-east of England, at the head of its 50-mile (80 km) estuary leading to the North Sea, London has been a major settlement for two millennia. Londinium was founded by the Romans.[9] The City of London, London's ancient core − an area of just 1.12 square miles (2.9 km2) and colloquially known as the Square Mile − retains boundaries that follow closely its medieval limits.[10][11][12][13][14][note 1] The City of Westminster is also an Inner London borough holding city status. Greater London is governed by the Mayor of London and the London Assembly.[15][note 2][16]"
+// modal end game
+let wrongAnsTitle = "Answer is incorrect";
+let wrongAnsText = "The correct answer was: ";
+let rightAnsTitle = "Answer is incorrect: ";
+let rightAnsText = "The correct answer was: ";
+let activeAns = "Nuuk, Tokyo, Moscow, Mexico City, Perth";
+let close = "CLOSE";
+let tryAgain = "TRY AGAIN";
+// // *** Section to be deleted TO here.. link game functions ***
+
+function infoModal() {
+  $(".modal").addClass("bg-modal");
+  $(".modal-info").addClass("modal-content");
+  $(".modal-content").html("<img id='imageModal' src='assets/images/perth.jpg' alt='perth' class='center'>" +
+  "<p class='details-modal-bold'>" + cityInfo + "</p>" +
+    "<button type='button' class='btn btn-default'>" + close + "</button>"
+  );
+
+  $(".btn").on("click", function () {
+    modal.style.display = "none";
+    window.location.reload();
   });
+};  
 
-  let hText = "Answer is Correct";
-  let details = "The correct answer was: ";
-  let activeAns = "Nuuk, Tokyo, Moscow, Mexico City, Perth";
-  let close = "CLOSE";
-  // To be deleted up to here
+function endModal() {
+  $(".modal").addClass("bg-modal");
+  $(".modal-end").addClass("modal-content");
+  $(".modal-content").html("<div class='modal-heading'>" + wrongAnsTitle + "</div>" + 
+    "<div class='details-modal'>" + wrongAnsText + "</div>" +
+    "<div class='details-modal-bold'>" + activeAns + "</div>" +
+    "<button type='button' class='btn btn-default'>" + tryAgain + "</button>"
+  );
+    // *** right answer modal. Will need to create condition for right and wrong answer ***
+  // $(".modal-content").html("<div class='modal-heading'>" + rightAnsTitle + "</div>" + 
+  // "<div class='details-modal'>" + rightAnsText + "</div>" +
+  // "<div class='details-modal-bold'>" + activeAns + "</div>" +
+  // "<button type='button' class='btn btn-default'>" + close + "</button>"
+  // );
 
-  function callModal() {
-    // show modal
-    $(".modal").addClass("bg-modal");
-    $(".modal-inner").addClass("modal-content");
-    // add content to modal
-    $(".modal-content").html("<div class='modal-heading'>" + hText + "</div>" +
-      "<div class='details-modal'>" + details + "</div>" +
-      "<div class='details-modal-bold'>" + activeAns + "</div>" +
-      "<button type='button' class='btn btn-default'>" + close + "</button>"
-    );
+  $(".btn").on("click", function () {
+    modal.style.display = "none";
+    window.location.reload();
+  });
+};
 
-    $(".btn").on("click", function () {
-      modal.style.display = "none";
-      window.location.reload();
-    });
-  };
-
-  window.onclick = function (event) {
-    if (event.target == modal) {
-      modal.style.display = "none";
-      window.location.reload();
-    }
+// optional functionality - allow reset by clicking outside the close button
+window.onclick = function (event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+    window.location.reload();
   }
+}
   // MODAL SECTION END
 
 
