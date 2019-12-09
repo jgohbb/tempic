@@ -23,6 +23,13 @@ ul {
     list-style-type: circle;
 }
 
+h1 {
+    font-family:'Open Sans', sans-serif;
+    font-size: 18px;
+    font-weight:600;
+    margin-bottom: 20px !important;
+    line-height: 30px;
+}
 /* classes */
 
 .header {
@@ -87,6 +94,11 @@ ul {
     display: block;
     text-align: center;
     cursor: pointer;
+}
+
+.user-name {
+    text-transform: capitalize;
+    color: darkred;
 }
 
 /* --- card --- */
