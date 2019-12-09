@@ -53,8 +53,8 @@ $(document).ready(function () {
     // call game functions
     citySelect();
     displayCards();
-    setTimeout(gatherWikiData, 1000);  
-    setTimeout(gatherWeatherData, 1000);  
+    setTimeout(gatherWikiData, 1000);
+    setTimeout(gatherWeatherData, 1000);
   }
 
   // selects the five cities to be used in the game
@@ -70,7 +70,25 @@ $(document).ready(function () {
     }
   }
 
-  function gatherWeatherData() {}
+  // adds the temp data (C) to each of the selectedCities 
+  function gatherWeatherData() {
+    var APIKey = "a981a2689a0391721cbc66577613f812"; // Donavan's API key
+    // loops through the selected cities list and makes a call for each city
+    for (let i = 0; i < selectedCities.length; i++) {
+      // OpenWeather url
+      weatherURL = "https://cors-anywhere.herokuapp.com/https://api.openweathermap.org/data/2.5/weather?q=" +
+        selectedCities[i].name + "&units=metric&appid=" + APIKey;
+      $.ajax({
+        url: weatherURL,
+        method: "GET"
+        // waits for resonse and then adds temp data to the city
+      }).then(function (response) {
+        let temp = response.main.temp;
+        selectedCities[i].currentTemp = temp;
+        console.log(selectedCities);
+      });
+    }
+  }
 
   // adds the wiki data to each of the selectedCities 
   function gatherWikiData() {
@@ -83,7 +101,7 @@ $(document).ready(function () {
       $.ajax({
         url: queryURL,
         method: "GET"
-      // waits for resonse and then parses and adds the data to the city
+        // waits for resonse and then parses and adds the data to the city
       }).then(function (response) {
         // gets general city data about each location
         firstParagraph = $(response.parse.text['*']).children("p:nth-of-type(2)").text();
@@ -91,21 +109,6 @@ $(document).ready(function () {
       });
     }
   }
-
-  // console.log(cities.city[0].name);
-  // // URL for the Wiki API
-  // var queryURL =
-  // "https://cors-anywhere.herokuapp.com/https://en.wikipedia.org/w/api.php?action=parse&prop=text&page=" +
-  // "moscow" + "&format=json";
-  // console.log(cities.city[0].name);
-  // let firstParagraph = "";
-  // $.ajax({
-  //   url: queryURL,
-  //   method: "GET"
-  // }).then(function (response) {
-  //   // gets general city data about each location
-  //   firstParagraph = $(response.parse.text['*']).children("p:nth-of-type(2)").text();
-  // });
 
   // displays cards on main page
   function displayCards() {
@@ -128,24 +131,6 @@ $(document).ready(function () {
         "</div>");
     }
   }
-
-  // - - - - - - - - - - WEATHER API - - - - - - - - - - //
-  // Donavan's API key for OpenWeather
-  var APIKey = "a981a2689a0391721cbc66577613f812";
-  let cityName = "";
-  // URL for the OpenWeather
-  weatherURL = "https://cors-anywhere.herokuapp.com/https://api.openweathermap.org/data/2.5/weather?q=" +
-    cityName + "&units=metric&appid=" + APIKey;
-  // Rough Ajax for getting tempurature from OpenWeather,
-  // $.ajax({
-  //     url: weatherURL,
-  //     method: "GET"
-  //   })
-  // console.log the tempurature for now.
-  // .then(function (data) {
-  //   console.log("Temperature (F): " + data.main.temp);
-  // });
-
 
   // - - - - - - - - - - MODAL START - - - - - - - - - - //
   // Section from here to be delected to link game functions

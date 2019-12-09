@@ -7,7 +7,8 @@ let cities = {
             population: "1.1M",
             sunshineHours: "3,124",
             image: "<img src='assets/images/amsterdam.jpg'>",
-            wikiData: ""
+            wikiData: "",
+            currentTemp: ""
         },
         {
             name: "Bangkok",
@@ -15,7 +16,8 @@ let cities = {
             population: "10.4M",
             sunshineHours: "2,624",
             image: "<img src='assets/images/bangkok.jpg'>",
-            wikiData: ""
+            wikiData: "",
+            currentTemp: ""
         },
         {
             name: "Barcelona",
@@ -23,7 +25,8 @@ let cities = {
             population: "5.5M",
             sunshineHours: "2,591",
             image: "<img src='assets/images/barcelona.jpg'>",
-            wikiData: ""
+            wikiData: "",
+            currentTemp: ""
         },
         {
             name: "Beijing",
@@ -31,7 +34,8 @@ let cities = {
             population: "20M",
             sunshineHours: "2,671",
             image: "<img src='assets/images/beijing.jpg'>",
-            wikiData: ""
+            wikiData: "",
+            currentTemp: ""
         },
         {
             name: "Chicago",
@@ -39,7 +43,8 @@ let cities = {
             population: "2.7M",
             sunshineHours: "2,508",
             image: "<img src='assets/images/chicago.jpg'>",
-            wikiData: ""
+            wikiData: "",
+            currentTemp: ""
         },
         {
             name: "Dubai",
@@ -47,7 +52,8 @@ let cities = {
             population: "2.8M",
             sunshineHours: "3,570",
             image: "<img src='assets/images/dubai.jpg'>",
-            wikiData: ""
+            wikiData: "",
+            currentTemp: ""
         },
         {
             name: "Glasgow",
@@ -55,7 +61,8 @@ let cities = {
             population: "1.7M",
             sunshineHours: "1,216",
             image: "<img src='assets/images/glasgow.jpg'>",
-            wikiData: ""
+            wikiData: "",
+            currentTemp: ""
         },
         {
             name: "Helsinki",
@@ -63,7 +70,8 @@ let cities = {
             population: "1.3M",
             sunshineHours: "1,858",
             image: "<img src='assets/images/helsinki.jpg'>",
-            wikiData: ""
+            wikiData: "",
+            currentTemp: ""
         },
         {
             name: "Johannesburg",
@@ -71,7 +79,8 @@ let cities = {
             population: "5.6M",
             sunshineHours: "3,124",
             image: "<img src='assets/images/johannesburg.jpg'>",
-            wikiData: ""
+            wikiData: "",
+            currentTemp: ""
         },
         {
             name: "Kuala Lumpur",
@@ -79,7 +88,8 @@ let cities = {
             population: "7.8M",
             sunshineHours: "2,222",
             image: "<img src='assets/images/kuala-lumpur.jpg'>",
-            wikiData: ""
+            wikiData: "",
+            currentTemp: ""
         },
         {
             name: "London",
@@ -87,7 +97,8 @@ let cities = {
             population: "9.2M",
             sunshineHours: "1,633",
             image: "<img src='assets/images/london.jpg'>",
-            wikiData: ""
+            wikiData: "",
+            currentTemp: ""
         },
         {
             name: "Mexico City",
@@ -95,7 +106,8 @@ let cities = {
             population: "21.7M",
             sunshineHours: "2,552",
             image: "<img src='assets/images/mexico-city.jpg'>",
-            wikiData: ""
+            wikiData: "",
+            currentTemp: ""
         },
         {
             name: "Montreal",
@@ -103,7 +115,8 @@ let cities = {
             population: "4.2M",
             sunshineHours: "2,051",
             image: "<img src='assets/images/montreal.jpg'>",
-            wikiData: ""
+            wikiData: "",
+            currentTemp: ""
         },
         {
             name: "Moscow",
@@ -111,7 +124,8 @@ let cities = {
             population: "12.5M",
             sunshineHours: "1,740",
             image: "<img src='assets/images/moscow.jpg'>",
-            wikiData: ""
+            wikiData: "",
+            currentTemp: ""
         },
         {
             name: "Mumbai",
@@ -119,7 +133,8 @@ let cities = {
             population: "20.2M",
             sunshineHours: "2,583",
             image: "<img src='assets/images/mumbai.jpg'>",
-            wikiData: ""
+            wikiData: "",
+            currentTemp: ""
         },
         {
             name: "Munich",
@@ -127,7 +142,8 @@ let cities = {
             population: "1.5M",
             sunshineHours: "1,709",
             image: "<img src='assets/images/munich.jpg'>",
-            wikiData: ""
+            wikiData: "",
+            currentTemp: ""
         },
         {
             name: "Nuuk",
@@ -135,7 +151,8 @@ let cities = {
             population: "0.02M",
             sunshineHours: "1,369",
             image: "<img src='assets/images/nuuk.jpg'>",
-            wikiData: ""
+            wikiData: "",
+            currentTemp: ""
         },
         {
             name: "Perth",
@@ -143,7 +160,8 @@ let cities = {
             population: "2M",
             sunshineHours: "3,230",
             image: "<img src='assets/images/perth.jpg'>",
-            wikiData: ""
+            wikiData: "",
+            currentTemp: ""
         },
         {
             name: "Tokyo",
@@ -151,7 +169,8 @@ let cities = {
             population: "37.4M",
             sunshineHours: "1,877",
             image: "<img src='assets/images/tokyo.jpg'>",
-            wikiData: ""
+            wikiData: "",
+            currentTemp: ""
         },
         {
             name: "Wellington",
@@ -159,7 +178,8 @@ let cities = {
             population: "0.4M",
             sunshineHours: "2,059",
             image: "<img src='assets/images/wellington.jpg'>",
-            wikiData: ""
+            wikiData: "",
+            currentTemp: ""
         }
     ]
 }
