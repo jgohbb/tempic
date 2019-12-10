@@ -78,7 +78,7 @@ $(document).ready(function () {
   // displays cards on main page
   function displayCards() {
     for (let i = 0; i < numCitiesPerGame; i++) {
-      $(".card-output").append("<div class='card'>" +
+      $(".card-output").append("<div class='card' id='_" + i + "_' draggable='true'>" +
         "<div class='card-image'>" + selectedCities[i].image + "</div>" +
         "<div class='card-data'>" +
         "<div class='city'>" + selectedCities[i].name + "</div>" +
@@ -152,11 +152,14 @@ $(document).ready(function () {
     }
     // compares actual temp values to ensure correct order
     // multiplying by 100 ensures the sort() takes the decimal points into account
-    winOrder = currentOrder.sort((a,b) => a[1] * 100 - b[1] * 100);
+    winOrder = currentOrder.sort((a, b) => a[1] * 100 - b[1] * 100);
 
     // WE WILL WANT TO LEAVE THIS CONSOLE.LOG WHILE WE CODE AND TEST
     console.log(winOrder); // - - - - - - - - - - - - - - - - - - //
   }
+
+  // runs sortable function //
+  $("#isSortable").sortable();
 
   // - - - - - - - - - - MODAL START - - - - - - - - - - //
     // // *** Section to be deleted FROM here.. link game functions ***
