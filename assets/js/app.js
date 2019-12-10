@@ -38,7 +38,7 @@ $(document).ready(function () {
     // checks for valid username input before proceeding
     if (name === "") {
       // highlights input field if blank
-      $("input").css("background", "#f0c3bc");
+      $("input").css({"background":"#f0c3bc", "font-weight":"bold",});
     } else {
       // toggle which page is being shown
       $(".content-inner").children(".landing-page").hide();
