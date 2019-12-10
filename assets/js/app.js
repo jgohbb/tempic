@@ -92,14 +92,10 @@ $(document).ready(function () {
         "<span class='f-right'>" + selectedCities[i].sunshineHours + "</span>" +
         "</div>" +
         "</div>" +
-        "<div class='card-button'>More Info</div>" +
+        "<div class='card-button' value='" + selectedCities[i].name + "'>More Info</div>" +
         "</div>");
     }
   }
-  // button in card to activate city info modal
-  $(document).on("clck", ".card-button", function(){
-    cardInfoModal();
-  });
 
   // adds the temp data (C) to each of the selectedCities 
   function gatherWeatherData() {
@@ -165,57 +161,75 @@ $(document).ready(function () {
   // runs sortable function //
   $("#isSortable").sortable();
 
+
   // - - - - - - - - - - MODAL START - - - - - - - - - - //
-    // // *** Section to be deleted FROM here.. link game functions ***
-    $("#myBtnEnd").on("click", function () {
-      endModal();
-    });
-      // modal end game hardcoded
-    let endModalTitle = "Answer is incorrect";
-    let endModalText = "The correct answer was: ";
-    let activeAns = "Nuuk, Tokyo, Moscow, Mexico City, Perth";
-    let close = "CLOSE";
-    let tryAgain = "PLAY AGAIN";
-    // // *** Section to be deleted TO here.. link game functions ***
- 
-    function cardInfoModal() {
-      $(".modal").addClass("bg-modal");
-      $(".modal-info").addClass("modal-content");
-      $(".modal-content").html("<img id='imageModal'" + selectedCities[i].image + "class='center'>" +
-      "<h2 class='city-name'>" + selectedCities[i].name + "</h2>" +
-      "<p class='city-details'>" + pStripped + "</p>" +
-        "<button type='button' class='btn btn-default'>" + close + "</button>"
-      );
-  
-      $(".btn").on("click", function () {
-        modal.style.display = "none";
-        window.location.reload();
-      });
-    };  
-  
-    function endModal() {
-      $(".modal").addClass("bg-modal");
-      $(".modal-end").addClass("modal-content");
-      $(".modal-content").html("<div class='modal-heading'>" + endModalTitle + "</div>" + 
-        "<div class='details-modal'>" + endModalText + "</div>" +
-        "<div class='details-modal-bold'>" + activeAns + "</div>" +
-        "<button type='button' class='btn btn-default'>" + tryAgain + "</button>"
-      );
-  
-      $(".btn").on("click", function () {
-        modal.style.display = "none";
-        window.location.reload();
-      });
-    };
-  
-    // optional functionality - allow reset by clicking outside the close button
-    window.onclick = function (event) {
-      if (event.target == modal) {
-        modal.style.display = "none";
-        window.location.reload();
+  $(document).on("click", ".card-button", function (event) {
+    let returnDiv = event.target;
+    let dValue = $(returnDiv).attr("value");
+    getCityInfo(dValue);
+  });
+
+  function getCityInfo(city) {
+    for (let i = 0; i < selectedCities.length; i++) {
+      if (selectedCities[i].name === city) {
+        let cInfo = selectedCities[i]
+        cardInfoModal(cInfo);
       }
     }
-    // // MODAL SECTION END
+  }
+
+  function cardInfoModal(sCityInfo) {
+    $("#modal").addClass("bg-modal");
+    $("#modal").html("<div class='modal-content'>" +
+      sCityInfo.image +
+      "<div class='modal-info'>" +
+      "<h2 class='city-name'>" + sCityInfo.name + ", " + sCityInfo.country +"</h2>" +
+      "<div class='m-info'>" +
+      "<div class='modal-info-small f-left'>Population: " + sCityInfo.population + "</div>" + 
+      "<div class='modal-info-small f-right'>Annual sun: " + sCityInfo.sunshineHours + "/hrs</div>" + 
+      "</div>" +
+      "<div class='city-details'>" + sCityInfo.wikiData + "</div>" +
+      "<button type='button' class='btn m-btn'>Close</button></div>");
+    $(".modal-content").children("img").addClass("imageModal");
+  }
+
+  $(document).on("click", ".m-btn", function () {
+    $("#modal").removeClass("bg-modal");
+  });
+
+  // // *** Section to be deleted FROM here.. link game functions ***
+  $("#myBtnEnd").on("click", function () {
+    endModal();
+  });
+  // modal end game hardcoded
+  let endModalTitle = "Answer is incorrect";
+  let endModalText = "The correct answer was: ";
+  let activeAns = "Nuuk, Tokyo, Moscow, Mexico City, Perth";
+  let tryAgain = "PLAY AGAIN";
+  // // *** Section to be deleted TO here.. link game functions ***
+
+  function endModal() {
+    $(".modal-end").addClass("modal-content");
+    $(".modal-content").html("<div class='modal-heading'>" + endModalTitle + "</div>" +
+      "<div class='details-modal'>" + endModalText + "</div>" +
+      "<div class='details-modal-bold'>" + activeAns + "</div>" +
+      "<button type='button' class='btn m-btn'>" + tryAgain + "</button>"
+    );
+
+    $(".btn").on("click", function () {
+      modal.style.display = "none";
+      window.location.reload();
+    });
+  };
+
+  // optional functionality - allow reset by clicking outside the close button
+  window.onclick = function (event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+      window.location.reload();
+    }
+  }
+  // // MODAL SECTION END
   // MODAL SECTION END
 
 

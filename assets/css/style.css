@@ -40,6 +40,14 @@ h1 {
     max-width: 700px;
 }
 
+.greeting {
+    font-family:'Open Sans', sans-serif;
+    font-size: 16px;
+    line-height: 30px;
+    margin-bottom: 30px;
+    line-height: 1.2em;
+}
+
 .logo {
     display: block;
     width: 310px;
@@ -237,15 +245,25 @@ h1 {
     top: 0;
 }
 
+.m-info {
+    display: block;
+    clear: both;
+    overflow: auto;
+    padding: 30px;
+}
+
+.modal-info-small {
+    font-size: 16px;
+}
+
 .modal-content {
     font-family: 'Open Sans', sans-serif; 
     font-size: 20px;
-    width: 500px;
-    height: 300px;
+    width: 60%;
     background-color: #f0c3bc;
     border: 3px solid black;
     border-radius: 30px;
-    padding: 20px;
+    padding: 10px;
     text-align: center;
 }
 
@@ -254,16 +272,15 @@ h1 {
     font-size: 35px;
     font-weight: bold;
     margin: 20px;
-    padding-bottom: 20px;
     border-bottom: 1px solid black;
 }
 
-#imageModal {
-    width: 100%;
-    max-width: 200px;
+.imageModal {
+    height: 200px;
+    width: 300px;
     display: block;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 20px auto 0 auto;
+    border: 1px solid black;
 }
 
 #modalCityInfo {
@@ -274,21 +291,26 @@ h1 {
     font-size: 1.2em;
     font-weight: bold !important;
     margin-top: 6px;
-    margin-bottom: 5px;
 }
 
 .city-details {
     line-height: 1.2em;
+    font-size: 18px;
+    max-height: 250px;
+    padding: 0 15px 0 15px;
+    overflow: auto;
 }
 
 .btn {
-    font-family:'Open Sans', sans-serif; 
+    font-family: 'Cardo', serif;
     font-size: 20px;
     font-weight: bold;
-    margin-top: 70px;
+    margin-top: 25px;
+    margin-bottom: 20px;
     background: #444;
     color: white;
     border-radius: 30px;
+    letter-spacing: 2px;
 }
 
 .btn:hover {
