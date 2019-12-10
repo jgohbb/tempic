@@ -13,6 +13,8 @@
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <!-- css/styles -->
     <link href="https://fonts.googleapis.com/css?family=Cardo|Open+Sans&display=swap" rel="stylesheet">
+    <link href = "https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css"
+         rel = "stylesheet">
     <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 </head>
@@ -61,8 +63,6 @@
                         </div>
                         <div class="play-button">Let's Play!</div>
                     </div>
-                    <div class="infoOutput"></div>
-
                 </div>
 
                 <!-- screen 2 - main page -->
@@ -71,7 +71,7 @@
                         <div class="f-left">coldest</div>
                         <div class="f-right">warmest</div>
                     </div>
-                    <div class="card-output"></div>
+                    <div class="card-output" id="isSortable"></div>
                 </div>
 
             </div>
@@ -84,22 +84,22 @@
         </div>
     </div>
 
-    <!-- scripts -->
+    <!-- --- --- --- scripts --- --- --- -->
     <!-- jquery link -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- needed for sorting -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
     <!-- city.js -->
     <script type="text/javascript" src="assets/js/city.js"></script>
     <!-- app.js -->
     <script type="text/javascript" src="assets/js/app.js"></script>
     <!-- bootstrap js links just in case -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
-        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    <!-- <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
         integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
     </script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
-    </script>
+    </script> -->
 
 </body>
 
