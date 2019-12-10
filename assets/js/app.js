@@ -189,7 +189,7 @@ $(document).ready(function () {
       "<div class='modal-info-small f-right'>Annual sun: " + sCityInfo.sunshineHours + "/hrs</div>" + 
       "</div>" +
       "<div class='city-details'>" + sCityInfo.wikiData + "</div>" +
-      "<button type='button' class='btn m-btn'>Close</button></div>");
+      "<button type='button' class='modal-button m-btn'>Close</button></div>");
     $(".modal-content").children("img").addClass("imageModal");
   }
 
@@ -213,10 +213,10 @@ $(document).ready(function () {
     $(".modal-content").html("<div class='modal-heading'>" + endModalTitle + "</div>" +
       "<div class='details-modal'>" + endModalText + "</div>" +
       "<div class='details-modal-bold'>" + activeAns + "</div>" +
-      "<button type='button' class='btn m-btn'>" + tryAgain + "</button>"
+      "<button type='button' class='modal-button m-btn'>" + tryAgain + "</button>"
     );
 
-    $(".btn").on("click", function () {
+    $(".m-btn").on("click", function () {
       modal.style.display = "none";
       window.location.reload();
     });
