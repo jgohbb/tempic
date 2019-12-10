@@ -270,6 +270,17 @@ h1 {
     margin-top: 5px;
 }
 
+.city-name {
+    font-size: 1.2em;
+    font-weight: bold !important;
+    margin-top: 6px;
+    margin-bottom: 5px;
+}
+
+.city-details {
+    line-height: 1.2em;
+}
+
 .btn {
     font-family:'Open Sans', sans-serif; 
     font-size: 20px;

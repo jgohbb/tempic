@@ -96,6 +96,10 @@ $(document).ready(function () {
         "</div>");
     }
   }
+  // button in card to activate city info modal
+  $(document).on("clck", ".card-button", function(){
+    cardInfoModal();
+  });
 
   // adds the temp data (C) to each of the selectedCities 
   function gatherWeatherData() {
@@ -166,27 +170,20 @@ $(document).ready(function () {
     $("#myBtnEnd").on("click", function () {
       endModal();
     });
-    // modal card info hardcoded
-    let citySelected = "Perth"; 
-    let imageSelected = "";
-    let cityInfo = "London is the capital and largest city of England and the United Kingdom.[7][8] Standing on the River Thames in the south-east of England, at the head of its 50-mile (80 km) estuary leading to the North Sea, London has been a major settlement for two millennia. Londinium was founded by the Romans.[9] The City of London, London's ancient core − an area of just 1.12 square miles (2.9 km2) and colloquially known as the Square Mile − retains boundaries that follow closely its medieval limits.[10][11][12][13][14][note 1] The City of Westminster is also an Inner London borough holding city status. Greater London is governed by the Mayor of London and the London Assembly.[15][note 2][16]"
-    // modal end game hardcoded
+      // modal end game hardcoded
     let endModalTitle = "Answer is incorrect";
     let endModalText = "The correct answer was: ";
     let activeAns = "Nuuk, Tokyo, Moscow, Mexico City, Perth";
     let close = "CLOSE";
-    let tryAgain = "TRY AGAIN";
+    let tryAgain = "PLAY AGAIN";
     // // *** Section to be deleted TO here.. link game functions ***
-  
-    $(document).on("click", "#cardBtn", function () {
-      infoModal();
-    });
-  
-    function infoModal() {
+ 
+    function cardInfoModal() {
       $(".modal").addClass("bg-modal");
       $(".modal-info").addClass("modal-content");
-      $(".modal-content").html("<img id='imageModal' src='assets/images/perth.jpg' alt='perth' class='center'>" +
-      "<p class='details-modal-bold'>" + cityInfo + "</p>" +
+      $(".modal-content").html("<img id='imageModal'" + selectedCities[i].image + "class='center'>" +
+      "<h2 class='city-name'>" + selectedCities[i].name + "</h2>" +
+      "<p class='city-details'>" + pStripped + "</p>" +
         "<button type='button' class='btn btn-default'>" + close + "</button>"
       );
   
