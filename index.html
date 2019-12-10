@@ -13,8 +13,6 @@
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <!-- css/styles -->
     <link href="https://fonts.googleapis.com/css?family=Cardo|Open+Sans&display=swap" rel="stylesheet">
-    <link href = "https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css"
-         rel = "stylesheet">
     <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 </head>
@@ -23,9 +21,8 @@
     <div class="main">
 
         <div class="content bg">
-            <!-- temporary button to test modal functionality [to be deleted] -->
-            <!-- <button id="cardBtn">Info Modal</button>
-            <button id="myBtnEnd">End Modal</button> -->
+
+            <!-- <button id="myBtnEnd">End Modal</button> -->
             <!-- temporary button to test modal functionality [to be deleted] -->
 
             <div class="content-inner">
@@ -68,8 +65,10 @@
                 <!-- screen 2 - main page -->
                 <div class="page main-page">
                     <div class="greeting">
-                        <h1>Hey <span class="user-name"></span>, just click and drag the cards below into the order you'd like and then submit your guess. 
-                            We'll let you know how many of the cards are in the correct places. Click more info for interesting snippets of the cities.</h1>
+                        <div>Hey <span class="user-name"></span>, just click and drag the cards below into 
+                            the order you'd like and then submit your guess. We'll let you know how many of 
+                            the cards are in the correct places. Click 'More Info' for interesting snippets of 
+                            the cities.</div>
                     </div>
                     <div class="warm-cold">
                         <div class="f-left">coldest</div>
@@ -81,9 +80,7 @@
             </div>
 
             <!-- screen - modal -->
-            <div id="modal" class="modal">
-                <div class=""></div>
-            </div>
+            <div id="modal" class="modal"></div>
 
         </div>
     </div>
@@ -97,14 +94,6 @@
     <script type="text/javascript" src="assets/js/city.js"></script>
     <!-- app.js -->
     <script type="text/javascript" src="assets/js/app.js"></script>
-    <!-- bootstrap js links just in case -->
-    <!-- <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
-    </script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
-    </script> -->
-
 </body>
 
 </html>
