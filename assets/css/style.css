@@ -79,12 +79,14 @@ h1 {
 }
 
 .warm-cold {
+    display: flex;
+    justify-content: space-between;
     font-family: 'Open Sans', sans-serif;
     letter-spacing: 0.15em;
     font-weight: 600;
 }
 
-.warm-cold>div {
+.warm-cold > div {
     padding: 4px;
 }
 
