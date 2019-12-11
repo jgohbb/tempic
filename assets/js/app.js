@@ -96,6 +96,7 @@ $(document).ready(function () {
     remainingGuessCount--;
     $(".guesses-output").html(remainingGuessCount);
     if (remainingGuessCount <= 0) {
+      // triggers end modal
       alert("out of guesses");
     }
   }
