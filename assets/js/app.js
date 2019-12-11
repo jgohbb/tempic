@@ -26,6 +26,9 @@ $(document).ready(function () {
       bg_images[Math.floor(Math.random() * bg_images.length)] + '\")'
   });
 
+  // calls main-page game setup function
+  gameSetup();
+
   // converts temp C to F
   function calcFahrenheit(c) {
     return (c * (9 / 5)) + 32;
@@ -50,8 +53,6 @@ $(document).ready(function () {
       usernameEntered = name;
       // add user name on greeting text on main page
       $(".user-name").html(usernameEntered);
-      // calls main-page game setup function
-      gameSetup();
     }
   });
 
@@ -87,9 +88,9 @@ $(document).ready(function () {
     // call game functions
     citySelect();
     displayCards();
-    setTimeout(gatherWikiData, 1000);
-    setTimeout(gatherWeatherData, 1000);
-    setTimeout(cityWinOrder, 4000);
+    setTimeout(gatherWikiData, 500);
+    setTimeout(gatherWeatherData, 500);
+    setTimeout(cityWinOrder, 2000);
   }
 
   // selects the five cities to be used in the game
