@@ -73,7 +73,7 @@ $(document).ready(function () {
     let hasWon = checkOrder();
     if (hasWon === true) {
       // trigger end modal
-      alert("you just won");
+      endModal();
     }
   });
 
@@ -262,29 +262,31 @@ $(document).ready(function () {
   });
 
   // // *** Section to be deleted FROM here.. link game functions ***
-  $("#myBtnEnd").on("click", function () {
-    endModal();
-  });
+  // $("#myBtnEnd").on("click", function () {
+  //   endModal();
+  // });
   // modal end game hardcoded
-  let endModalTitle = "Answer is incorrect";
+  let endModalTitle = "Good job";
   let endModalText = "The correct answer was: ";
   let activeAns = "Nuuk, Tokyo, Moscow, Mexico City, Perth";
   let tryAgain = "PLAY AGAIN";
   // // *** Section to be deleted TO here.. link game functions ***
 
   function endModal() {
-    $(".modal-end").addClass("modal-content");
-    $(".modal-content").html("<div class='modal-heading'>" + endModalTitle + "</div>" +
-      "<div class='details-modal'>" + endModalText + "</div>" +
-      "<div class='details-modal-bold'>" + activeAns + "</div>" +
-      "<button type='button' class='modal-button m-btn'>" + tryAgain + "</button>"
+    $("#modal").addClass("bg-modal");
+    $("#modal").html("<div class='modal-content'>" +
+    "<div class='modal-heading'>" + endModalTitle + "</div>" +
+    "<div class='details-modal'>" + endModalText + "</div>" +
+    "<div class='details-modal-bold'>" + activeAns + "</div>" +
+    "<button type='button' class='endModal-button'>" + tryAgain + "</button></div>" 
     );
 
-    $(".m-btn").on("click", function () {
+    $(document).on("click", ".endModal-button", function () {
       modal.style.display = "none";
       window.location.reload();
     });
   };
+
 
   // optional functionality - allow reset by clicking outside the close button
   window.onclick = function (event) {

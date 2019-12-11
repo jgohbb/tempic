@@ -107,7 +107,8 @@ h1 {
 
 .play-button,
 .submit-button, 
-.modal-button {
+.modal-button,
+.endModal-button {
     font-family: 'Cardo', serif;
     font-weight: 900;
     height: 35px;
@@ -125,9 +126,14 @@ h1 {
     cursor: pointer;
 }
 
+.endModal-button {
+    font-size: 12px !important;
+}
+
 .play-button:hover,
 .submit-button:hover,
-.modal-button:hover {
+.modal-button:hover,
+.endModal-button:hover {
     background-color: #444;
     color: white;
 }
