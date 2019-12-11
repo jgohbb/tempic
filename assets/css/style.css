@@ -71,6 +71,15 @@ h1 {
     margin-bottom: 40px;
 }
 
+.counters {
+    font-family: 'Open Sans', sans-serif;
+    width: 275px;
+}
+
+.counters > div {
+    padding: 10px;
+}
+
 .page {
     display: block;
     min-height: 500px;
