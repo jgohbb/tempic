@@ -73,7 +73,7 @@ $(document).ready(function () {
     let hasWon = checkOrder();
     if (hasWon === true) {
       // trigger end modal
-      endModal();
+      endModal(true);
     }
   });
 
@@ -99,12 +99,13 @@ $(document).ready(function () {
     $(".guesses-output").html(remainingGuessCount);
     if (remainingGuessCount <= 0) {
       // triggers end modal
-      alert("out of guesses");
+      endModal(false);
     }
   }
 
   function timer() {
-    let min = 0, sec = 0;
+    let min = 0,
+      sec = 0;
     setInterval(function () {
       sec++;
       if (sec < 10) {
@@ -261,32 +262,57 @@ $(document).ready(function () {
     $("#modal").removeClass("bg-modal");
   });
 
-  // // *** Section to be deleted FROM here.. link game functions ***
-  // $("#myBtnEnd").on("click", function () {
-  //   endModal();
-  // });
-  // modal end game hardcoded
-  let endModalTitle = "Good job";
-  let endModalText = "The correct answer was: ";
-  let activeAns = "Nuuk, Tokyo, Moscow, Mexico City, Perth";
-  let tryAgain = "PLAY AGAIN";
-  // // *** Section to be deleted TO here.. link game functions ***
+  // / tryAgain = "PLAY AGAIN";/ *** Section to be deleted TO here.. link game functions ***
 
-  function endModal() {
+  function endModal(bool) {
     $("#modal").addClass("bg-modal");
-    $("#modal").html("<div class='modal-content'>" +
-    "<div class='modal-heading'>" + endModalTitle + "</div>" +
-    "<div class='details-modal'>" + endModalText + "</div>" +
-    "<div class='details-modal-bold'>" + activeAns + "</div>" +
-    "<button type='button' class='endModal-button'>" + tryAgain + "</button></div>" 
-    );
+    if (bool === true) {
+      $("#modal").html("<div class='modal-content'>" +
+        "<div class='modal-heading'>Great Job</div>" +
+        "<div class='details-modal'>You guessed the order right:</div>" +
+        "<div class='details-modal-bold'>" + 
+          "<ul>" + 
+            "<li><span class='f-left'>" + winOrder[0][0] + 
+            "</span><span class='f-right'>" + winOrder[0][1] + " C / " + calcFahrenheit(winOrder[0][1]) + " F</span></li>" +
+            "<li><span class='f-left'>" + winOrder[1][0] + 
+            "</span><span class='f-right'>" + winOrder[1][1] + " C / " + calcFahrenheit(winOrder[1][1]) + " F</span></li>" +
+            "<li><span class='f-left'>" + winOrder[2][0] + 
+            "</span><span class='f-right'>" + winOrder[2][1] + " C / " + calcFahrenheit(winOrder[2][1]) + " F</span></li>" +
+            "<li><span class='f-left'>" + winOrder[3][0] + 
+            "</span><span class='f-right'>" + winOrder[3][1] + " C / " + calcFahrenheit(winOrder[3][1]) + " F</span></li>" +
+            "<li><span class='f-left'>" + winOrder[4][0] + 
+            "</span><span class='f-right'>" + winOrder[4][1] + " C / " + calcFahrenheit(winOrder[4][1]) + " F</span></li>" +
+          "</ul>" +
+        "</div>" +
+        "<button type='button' class='endModal-button'>Play Again</button></div>"
+      );
+    } else {
+      $("#modal").html("<div class='modal-content'>" +
+        "<div class='modal-heading'>Sorry</div>" +
+        "<div class='details-modal'>The correct order was:</div>" +
+        "<div class='details-modal-bold'>" + 
+          "<ul>" + 
+            "<li><span class='f-left'>" + winOrder[0][0] + 
+            "</span><span class='f-right'>" + winOrder[0][1] + " C / " + calcFahrenheit(winOrder[0][1]) + " F</span></li>" +
+            "<li><span class='f-left'>" + winOrder[1][0] + 
+            "</span><span class='f-right'>" + winOrder[1][1] + " C / " + calcFahrenheit(winOrder[1][1]) + " F</span></li>" +
+            "<li><span class='f-left'>" + winOrder[2][0] + 
+            "</span><span class='f-right'>" + winOrder[2][1] + " C / " + calcFahrenheit(winOrder[2][1]) + " F</span></li>" +
+            "<li><span class='f-left'>" + winOrder[3][0] + 
+            "</span><span class='f-right'>" + winOrder[3][1] + " C / " + calcFahrenheit(winOrder[3][1]) + " F</span></li>" +
+            "<li><span class='f-left'>" + winOrder[4][0] + 
+            "</span><span class='f-right'>" + winOrder[4][1] + " C / " + calcFahrenheit(winOrder[4][1]) + " F</span></li>" +
+          "</ul>" +
+        "</div>" +
+        "<button type='button' class='endModal-button'>Try Again</button></div>"
+      );
+    }
+  }
 
-    $(document).on("click", ".endModal-button", function () {
-      modal.style.display = "none";
-      window.location.reload();
-    });
-  };
-
+  $(document).on("click", ".endModal-button", function () {
+    modal.style.display = "none";
+    window.location.reload();
+  });
 
   // optional functionality - allow reset by clicking outside the close button
   window.onclick = function (event) {
