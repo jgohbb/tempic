@@ -38,7 +38,10 @@ $(document).ready(function () {
     // checks for valid username input before proceeding
     if (name === "") {
       // highlights input field if blank
-      $("input").css({"background":"#f0c3bc", "font-weight":"bold",});
+      $("input").css({
+        "background": "#f0c3bc",
+        "font-weight": "bold",
+      });
     } else {
       // toggle which page is being shown
       $(".content-inner").children(".landing-page").hide();
@@ -51,6 +54,33 @@ $(document).ready(function () {
       gameSetup();
     }
   });
+
+  // main page - submit button
+  $(".submit-button").on("click", function () {
+    // verify user card order
+    let hasWon = checkOrder();
+    if (hasWon === true) {
+      // trigger end modal
+      alert("you just won");
+    }
+  });
+
+  // checks card order against winOrder
+  function checkOrder() {
+    let uCardOrder = $(".card-output").children();
+    let numCorrect = 0;
+    for (let i = 0; i < uCardOrder.length; i++) {
+      let uco = $(uCardOrder[i]).children("div:nth-child(3)").attr("value");
+      if (uco === winOrder[i][0]) {
+        numCorrect++;
+      }
+    }
+    // return true if all five are in the correct order
+    if (numCorrect === uCardOrder.length) {
+      return true;
+    }
+    $(".guess-feedback").text("Cities in correct order: " + numCorrect);
+  }
 
   // calls all the functions to run the game
   function gameSetup() {
@@ -154,8 +184,10 @@ $(document).ready(function () {
     // multiplying by 100 ensures the sort() takes the decimal points into account
     winOrder = currentOrder.sort((a, b) => a[1] * 100 - b[1] * 100);
 
+    // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - //
     // WE WILL WANT TO LEAVE THIS CONSOLE.LOG WHILE WE CODE AND TEST
-    console.log(winOrder); // - - - - - - - - - - - - - - - - - - //
+    console.log("win order is: " + winOrder); // - - - - - - - - - - - - - - - //
+    // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - //
   }
 
   // runs sortable function //
@@ -183,10 +215,10 @@ $(document).ready(function () {
     $("#modal").html("<div class='modal-content'>" +
       sCityInfo.image +
       "<div class='modal-info'>" +
-      "<h2 class='city-name'>" + sCityInfo.name + ", " + sCityInfo.country +"</h2>" +
+      "<h2 class='city-name'>" + sCityInfo.name + ", " + sCityInfo.country + "</h2>" +
       "<div class='m-info'>" +
-      "<div class='modal-info-small f-left'>Population: " + sCityInfo.population + "</div>" + 
-      "<div class='modal-info-small f-right'>Annual sun: " + sCityInfo.sunshineHours + "/hrs</div>" + 
+      "<div class='modal-info-small f-left'>Population: " + sCityInfo.population + "</div>" +
+      "<div class='modal-info-small f-right'>Annual sun: " + sCityInfo.sunshineHours + "/hrs</div>" +
       "</div>" +
       "<div class='city-details'>" + sCityInfo.wikiData + "</div>" +
       "<button type='button' class='modal-button m-btn'>Close</button></div>");
