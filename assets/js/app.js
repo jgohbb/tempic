@@ -13,10 +13,16 @@ $(document).ready(function () {
   let numCitiesPerGame = 5;
   // order of cities from cold to warm
   let winOrder = [];
+  // holds guess count remaining
+  let remainingGuessCount = 10;
 
   // - - - - - - - - - - GENERAL FUNCTIONALITY - - - - - - - - - - //
   // hides the main game page on start page load
   $(".content-inner").children(".main-page").hide();
+  $(".counters").children("div").hide();
+
+  // sets starting guess count
+  $(".guesses-output").html(remainingGuessCount);
 
   // selects and displays random background image for the .content 
   // section via .bg class
@@ -49,6 +55,7 @@ $(document).ready(function () {
       // toggle which page is being shown
       $(".content-inner").children(".landing-page").hide();
       $(".content-inner").children(".main-page").show();
+      $(".counters").children("div").show();
       // update global name var
       usernameEntered = name;
       // add user name on greeting text on main page
@@ -58,6 +65,8 @@ $(document).ready(function () {
 
   // main page - submit button
   $(".submit-button").on("click", function () {
+    // increment guess count
+    guessCount();
     // verify user card order
     let hasWon = checkOrder();
     if (hasWon === true) {
@@ -81,6 +90,15 @@ $(document).ready(function () {
       return true;
     }
     $(".guess-feedback").text("Cities in correct order: " + numCorrect);
+  }
+
+  function guessCount() {
+    remainingGuessCount--;
+    $(".guesses-output").html(remainingGuessCount);
+    if (remainingGuessCount <= 0) {
+      // triggers end modal
+      alert("out of guesses");
+    }
   }
 
   // calls all the functions to run the game
