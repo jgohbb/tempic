@@ -61,6 +61,8 @@ $(document).ready(function () {
       // add user name on greeting text on main page
       $(".user-name").html(usernameEntered);
     }
+    // start timer
+    timer();
   });
 
   // main page - submit button
@@ -99,6 +101,18 @@ $(document).ready(function () {
       // triggers end modal
       alert("out of guesses");
     }
+  }
+
+  function timer() {
+    let min = 0, sec = 0;
+    setInterval(function () {
+      sec++;
+      if (sec < 10) {
+        $(".sec").text("0" + sec);
+      } else {
+        $(".sec").text(sec);
+      }
+    }, 1000);
   }
 
   // calls all the functions to run the game
@@ -211,7 +225,6 @@ $(document).ready(function () {
 
   // runs sortable function //
   $("#isSortable").sortable();
-
 
   // - - - - - - - - - - MODAL START - - - - - - - - - - //
   $(document).on("click", ".card-button", function (event) {
