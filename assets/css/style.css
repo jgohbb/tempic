@@ -25,7 +25,7 @@ ul {
 }
 
 li {
-    margin: 5px auto;
+    margin: 5px 0 2px 0 !important;
 }
 
 h1 {
@@ -81,7 +81,7 @@ h1 {
 }
 
 .details-modal-bold {
-    margin: 10px 60px 10px 60px;
+    margin: 10px 60px 10px 90px;
 }
 
 .page {
@@ -120,14 +120,15 @@ h1 {
 .endModal-button {
     font-family: 'Cardo', serif;
     font-weight: 900;
-    height: 35px;
-    width: 125px;
+    font-size: 20px;
+    height: 40px;
+    width: 140px;
     border-radius: 20px;
     border: darkslategrey 1px double;
     box-shadow: inset 0 0 5px black;
     background-color: #f0c3bc;
     color: black;
-    padding: 8px 0 10px 0;
+    padding: 8px 0 8px 0;
     margin: 20px auto;
     letter-spacing: 1px;
     display: block;
@@ -135,8 +136,8 @@ h1 {
     cursor: pointer;
 }
 
-.endModal-button {
-    font-size: 12px !important;
+button:focus {
+    outline: thin dotted;
 }
 
 .play-button:hover,
@@ -311,7 +312,8 @@ h1 {
     font-family: 'Cardo', serif;
     font-size: 35px;
     font-weight: bold;
-    margin: 20px;
+    margin: 20px 30px 20px 30px;
+    padding-bottom: 15px;
     border-bottom: 1px solid black;
 }
 
@@ -339,6 +341,10 @@ h1 {
     max-height: 250px;
     padding: 0 15px 0 15px;
     overflow: auto;
+}
+
+.details-modal {
+    font-weight: bold;
 }
 
 /* 420px */
