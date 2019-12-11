@@ -37,7 +37,8 @@ $(document).ready(function () {
 
   // converts temp C to F
   function calcFahrenheit(c) {
-    return (c * (9 / 5)) + 32;
+    let f = (c * (9 / 5)) + 32;
+    return f.toFixed(2);
   }
 
   // landing page, Let's Play button
@@ -52,6 +53,8 @@ $(document).ready(function () {
         "font-weight": "bold",
       });
     } else {
+      // start timer
+      timer();
       // toggle which page is being shown
       $(".content-inner").children(".landing-page").hide();
       $(".content-inner").children(".main-page").show();
@@ -61,8 +64,6 @@ $(document).ready(function () {
       // add user name on greeting text on main page
       $(".user-name").html(usernameEntered);
     }
-    // start timer
-    timer();
   });
 
   // main page - submit button
@@ -103,15 +104,27 @@ $(document).ready(function () {
     }
   }
 
+  // updates when game ends
+  let endTimer = false;
+  // counts up from 0 
   function timer() {
     let min = 0,
       sec = 0;
-    setInterval(function () {
+    let time = setInterval(function () {
       sec++;
-      if (sec < 10) {
+      if (sec === 60) {
+        sec = 0;
+        min++;
+        $(".min").text(min);
+        $(".sec").text("0" + sec);
+      } else if (sec < 10) {
         $(".sec").text("0" + sec);
       } else {
         $(".sec").text(sec);
+      }
+      // checks for game end
+      if (endTimer === true) {
+        clearInterval(time);
       }
     }, 1000);
   }
@@ -228,12 +241,15 @@ $(document).ready(function () {
   $("#isSortable").sortable();
 
   // - - - - - - - - - - MODAL START - - - - - - - - - - //
+
+  // listens for the button click on the city cards
   $(document).on("click", ".card-button", function (event) {
     let returnDiv = event.target;
     let dValue = $(returnDiv).attr("value");
     getCityInfo(dValue);
   });
 
+  // matches city clicked to the correct info
   function getCityInfo(city) {
     for (let i = 0; i < selectedCities.length; i++) {
       if (selectedCities[i].name === city) {
@@ -243,6 +259,7 @@ $(document).ready(function () {
     }
   }
 
+  // displays further city information for each card
   function cardInfoModal(sCityInfo) {
     $("#modal").addClass("bg-modal");
     $("#modal").html("<div class='modal-content'>" +
@@ -262,27 +279,28 @@ $(document).ready(function () {
     $("#modal").removeClass("bg-modal");
   });
 
-  // / tryAgain = "PLAY AGAIN";/ *** Section to be deleted TO here.. link game functions ***
-
+  // won and lost modal
   function endModal(bool) {
+    // stop timer 
+    endTimer = true;
     $("#modal").addClass("bg-modal");
     if (bool === true) {
       $("#modal").html("<div class='modal-content'>" +
         "<div class='modal-heading'>Great Job</div>" +
         "<div class='details-modal'>You guessed the order right:</div>" +
-        "<div class='details-modal-bold'>" + 
-          "<ul>" + 
-            "<li><span class='f-left'>" + winOrder[0][0] + 
-            "</span><span class='f-right'>" + winOrder[0][1] + " C / " + calcFahrenheit(winOrder[0][1]) + " F</span></li>" +
-            "<li><span class='f-left'>" + winOrder[1][0] + 
-            "</span><span class='f-right'>" + winOrder[1][1] + " C / " + calcFahrenheit(winOrder[1][1]) + " F</span></li>" +
-            "<li><span class='f-left'>" + winOrder[2][0] + 
-            "</span><span class='f-right'>" + winOrder[2][1] + " C / " + calcFahrenheit(winOrder[2][1]) + " F</span></li>" +
-            "<li><span class='f-left'>" + winOrder[3][0] + 
-            "</span><span class='f-right'>" + winOrder[3][1] + " C / " + calcFahrenheit(winOrder[3][1]) + " F</span></li>" +
-            "<li><span class='f-left'>" + winOrder[4][0] + 
-            "</span><span class='f-right'>" + winOrder[4][1] + " C / " + calcFahrenheit(winOrder[4][1]) + " F</span></li>" +
-          "</ul>" +
+        "<div class='details-modal-bold'>" +
+        "<ul>" +
+        "<li><span class='f-left'>" + winOrder[0][0] +
+        "</span><span class='f-right'>" + winOrder[0][1] + " C / " + calcFahrenheit(winOrder[0][1]) + " F</span></li>" +
+        "<li><span class='f-left'>" + winOrder[1][0] +
+        "</span><span class='f-right'>" + winOrder[1][1] + " C / " + calcFahrenheit(winOrder[1][1]) + " F</span></li>" +
+        "<li><span class='f-left'>" + winOrder[2][0] +
+        "</span><span class='f-right'>" + winOrder[2][1] + " C / " + calcFahrenheit(winOrder[2][1]) + " F</span></li>" +
+        "<li><span class='f-left'>" + winOrder[3][0] +
+        "</span><span class='f-right'>" + winOrder[3][1] + " C / " + calcFahrenheit(winOrder[3][1]) + " F</span></li>" +
+        "<li><span class='f-left'>" + winOrder[4][0] +
+        "</span><span class='f-right'>" + winOrder[4][1] + " C / " + calcFahrenheit(winOrder[4][1]) + " F</span></li>" +
+        "</ul>" +
         "</div>" +
         "<button type='button' class='endModal-button'>Play Again</button></div>"
       );
@@ -290,19 +308,19 @@ $(document).ready(function () {
       $("#modal").html("<div class='modal-content'>" +
         "<div class='modal-heading'>Sorry</div>" +
         "<div class='details-modal'>The correct order was:</div>" +
-        "<div class='details-modal-bold'>" + 
-          "<ul>" + 
-            "<li><span class='f-left'>" + winOrder[0][0] + 
-            "</span><span class='f-right'>" + winOrder[0][1] + " C / " + calcFahrenheit(winOrder[0][1]) + " F</span></li>" +
-            "<li><span class='f-left'>" + winOrder[1][0] + 
-            "</span><span class='f-right'>" + winOrder[1][1] + " C / " + calcFahrenheit(winOrder[1][1]) + " F</span></li>" +
-            "<li><span class='f-left'>" + winOrder[2][0] + 
-            "</span><span class='f-right'>" + winOrder[2][1] + " C / " + calcFahrenheit(winOrder[2][1]) + " F</span></li>" +
-            "<li><span class='f-left'>" + winOrder[3][0] + 
-            "</span><span class='f-right'>" + winOrder[3][1] + " C / " + calcFahrenheit(winOrder[3][1]) + " F</span></li>" +
-            "<li><span class='f-left'>" + winOrder[4][0] + 
-            "</span><span class='f-right'>" + winOrder[4][1] + " C / " + calcFahrenheit(winOrder[4][1]) + " F</span></li>" +
-          "</ul>" +
+        "<div class='details-modal-bold'>" +
+        "<ul>" +
+        "<li><span class='f-left'>" + winOrder[0][0] +
+        "</span><span class='f-right'>" + winOrder[0][1] + " C / " + calcFahrenheit(winOrder[0][1]) + " F</span></li>" +
+        "<li><span class='f-left'>" + winOrder[1][0] +
+        "</span><span class='f-right'>" + winOrder[1][1] + " C / " + calcFahrenheit(winOrder[1][1]) + " F</span></li>" +
+        "<li><span class='f-left'>" + winOrder[2][0] +
+        "</span><span class='f-right'>" + winOrder[2][1] + " C / " + calcFahrenheit(winOrder[2][1]) + " F</span></li>" +
+        "<li><span class='f-left'>" + winOrder[3][0] +
+        "</span><span class='f-right'>" + winOrder[3][1] + " C / " + calcFahrenheit(winOrder[3][1]) + " F</span></li>" +
+        "<li><span class='f-left'>" + winOrder[4][0] +
+        "</span><span class='f-right'>" + winOrder[4][1] + " C / " + calcFahrenheit(winOrder[4][1]) + " F</span></li>" +
+        "</ul>" +
         "</div>" +
         "<button type='button' class='endModal-button'>Try Again</button></div>"
       );
@@ -313,16 +331,6 @@ $(document).ready(function () {
     modal.style.display = "none";
     window.location.reload();
   });
-
-  // optional functionality - allow reset by clicking outside the close button
-  window.onclick = function (event) {
-    if (event.target == modal) {
-      modal.style.display = "none";
-      window.location.reload();
-    }
-  }
-  // // MODAL SECTION END
   // MODAL SECTION END
-
 
 }); // end of document.ready
