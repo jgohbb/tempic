@@ -328,7 +328,7 @@ $(document).ready(function () {
   }
 
   $(document).on("click", ".endModal-button", function () {
-    modal.style.display = "none";
+    $("#modal").removeClass("bg-modal");
     window.location.reload();
   });
   // MODAL SECTION END
