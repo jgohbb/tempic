@@ -1,6 +1,9 @@
 # tempic
 
 Group project
+Team members:
+Lewis Lockhart, James Goh, Donavan Phothirath, Nathan Poulson
+
 
 Organize city images based on (hidden) temperatures 
 
